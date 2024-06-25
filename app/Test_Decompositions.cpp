@@ -8,13 +8,22 @@ int main()
 	,	-16, -43, 98
 	};
 
+	{
+		auto const [L, d] = prac::LDLT_Decomposition(A);
 
-	auto const [L, d] = prac::LDLT_Decomposition(A);
+		std::cout << L << std::endl;
+		std::cout << d.transpose() << std::endl;
 
-	std::cout << L << std::endl;
-	std::cout << d.transpose() << std::endl;
+		std::cout << "L*D*L^T = " << std::endl << L*d.diag()*L.transpose() << std::endl;
+	}
+	{
+		prac::Matrix<float, 3, 1> const 
+			x{-2, 4, -8}, 
+			b = A*x,
+			x_sol = prac::Solve_Linear_Equation_by_LDLT(A, b);
 
-	std::cout << "L*D*L^T = " << std::endl << L*d.diag()*L.transpose() << std::endl;
+		std::cout << "x_sol = " << x_sol.transpose() << std::endl;
+	}
 
 	return 0;
 }
