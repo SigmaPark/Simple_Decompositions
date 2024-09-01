@@ -1,6 +1,7 @@
 file(
 	GLOB_RECURSE SRC_FILES CONFIGURE_DEPENDS
 	${CMAKE_CURRENT_SOURCE_DIR}/*.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/../include/*.hpp
 )
 
 add_executable(

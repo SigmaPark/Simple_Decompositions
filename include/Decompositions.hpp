@@ -92,8 +92,8 @@ struct prac::Matrix
 template<class T, int R, int C>
 static decltype(auto) operator<<(std::ostream& os, prac::Matrix<T, R, C> const& m)
 {
-	for(int i = 0;  i < R;  ++i,  os << std::endl)
-		for(int j = 0;  j < C;  ++j,  os << ", ")
+	for( int i = 0;  i < R;  (++i < R ? os << std::endl : os) )
+		for( int j = 0;  j < C;  (++j < C ? os << ", " : os) )
 			os << m(i, j);
 
 	return os;
