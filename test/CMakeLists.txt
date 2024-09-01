@@ -8,14 +8,9 @@ add_executable(
 	${SRC_FILES}
 )
 
-#target_link_libraries(
-#	Test_Decompositions PRIVATE
-#	Decompositions
-#)
-
 target_include_directories(
 	Test_Decompositions PUBLIC 
-	${CMAKE_SOURCE_DIR}/include
+	${CMAKE_CURRENT_SOURCE_DIR}/../include
 )
 
 target_compile_features(Test_Decompositions PRIVATE cxx_std_17)
